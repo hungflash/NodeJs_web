@@ -6,9 +6,10 @@ class SiteController {
     index(req, res, next) {
         Course.find({})
             .then((courses) => {
-                courses = courses.map((cour) => cour.toObject());
-                // courses: multiplemongoosetoolobject(courses),
-                res.render('home', { courses });
+                // courses = courses.map((cour) => cour.toObject());
+                res.render('home', {
+                    courses: multiplemongoosetoolobject(courses),
+                });
             })
             .catch(next);
     }
